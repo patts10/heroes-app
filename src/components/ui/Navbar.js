@@ -60,9 +60,9 @@ export const Navbar = () => {
             <div className="navbar-collapse collapse w-100 order-3 dual-collapse2">
                 <ul className="navbar-nav ml-auto">
 
-                    <spam className="nav-item nav-link text-info">
+                    <span className="nav-item nav-link text-info">
                         { user.name }
-                    </spam>
+                    </span>
                     <button 
                         className="nav-item nav-link btn" 
                         onClick={ handleLogout }
