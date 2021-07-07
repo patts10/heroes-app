@@ -56,6 +56,44 @@ describe('Pruebas en <HeroScreen />', () => {
 
     wrapper.find('button').prop('onClick')();
 
+    expect( history.push ).toHaveBeenCalledWith('/');
+    expect( history.goBack ).not.toHaveBeenCalled();
+
   });
+
+  test('debe de regresr a la pantalla anterior GOBACK', () => {
+    
+    const wrapper = mount( 
+      <MemoryRouter initialEntries={['/hero/marvel-iron']}>
+        <Route 
+          path="/hero/:heroeId" 
+          component={ () => <HeroScreen history={ history } /> } 
+        />
+      </MemoryRouter>
+    );
+
+    wrapper.find('button').prop('onClick')();
+
+    expect( history.push ).toHaveBeenCalledTimes(0);
+    expect( history.goBack ).toHaveBeenCalled();
+
+  });
+
+  test('debe de llamar el redirect si el hero no existe', () => {
+    
+    const wrapper = mount( 
+      <MemoryRouter initialEntries={['/hero/marvel-ironlnll']}>
+        <Route 
+          path="/hero/:heroeId" 
+          component={ () => <HeroScreen history={ history } /> } 
+        />
+      </MemoryRouter>
+    );
+
+    expect( wrapper.text() ).toBe('');
+
+  })
+  
+  
   
 })
