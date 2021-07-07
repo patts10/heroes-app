@@ -1,7 +1,7 @@
 
-import { mount } from 'enzyme'
-import { MemoryRouter, Route } from 'react-router-dom'
-import { SearchScreen } from '../../../components/search/SearchScreen'
+import { mount } from 'enzyme';
+import { MemoryRouter, Route } from 'react-router-dom';
+import { SearchScreen } from '../../../components/search/SearchScreen';
 
 describe('Pruebas en <SearchScreen />', () => {
   
